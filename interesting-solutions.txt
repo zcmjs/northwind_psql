@@ -1,0 +1,27 @@
+https://medium.com/@tasnimxpress/sql-practice-northwind-database-d5296041a342
+Q 13:
+SELECT emp.first_name, emp.last_name, emp.employee_id,
+COUNT(ord.employee_id) AS total_orders,
+SUM(CASE WHEN shipped_date >= required_date OR shipped_date is NULL THEN 1 ELSE 0 END) AS late_num_orders,
+SUM(CASE WHEN shipped_date < required_date THEN 1 ELSE 0 END) AS on_time_num_orders
+FROM employees emp
+JOIN orders ord ON ord.employee_id = emp.employee_id
+GROUP BY emp.employee_id
+order by emp.employee_id
+;
+
+SELECT emp.first_name, emp.last_name, emp.employee_id,
+COUNT(ord.order_id) AS total_orders,
+CASE
+	WHEN ord.shipped_date >= ord.required_date OR ord.shipped_date is NULL THEN 'Late' ELSE 'On Time' END AS shipped
+FROM employees emp
+JOIN orders ord ON ord.employee_id = emp.employee_id
+GROUP BY
+	emp.employee_id,
+	CASE
+	  WHEN ord.shipped_date >= ord.required_date OR ord.shipped_date is NULL THEN 'Late' ELSE 'On Time'
+	END
+order by emp.employee_id
+;
+
+------------------------------------------------------------------------------------------------------------------------

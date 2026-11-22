@@ -1,0 +1,25 @@
+EXPLAIN ANALYZE SELECT first_name, last_name, hire_date
+FROM employees
+ORDER BY hire_date desc
+LIMIT 1;
+
+
+EXPLAIN ANALYZE SELECT first_name, last_name, hire_date
+FROM Employees
+WHERE hire_date = (SELECT MAX(hire_date) FROM Employees);
+
+-------------------------------------------------------------------------------------
+EXPLAIN ANALYZE
+SELECT o.order_id, o.order_date, c.company_name
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE c.country = 'Germany';
+
+EXPLAIN ANALYZE
+SELECT o.order_id, o.order_date,
+       (SELECT company_name FROM customers c WHERE c.customer_id = o.customer_id) AS company_name
+FROM orders o
+WHERE o.customer_id IN (
+    SELECT customer_id FROM customers WHERE country = 'Germany'
+);
+

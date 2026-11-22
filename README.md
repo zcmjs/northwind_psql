@@ -104,3 +104,4 @@ If you need to upload any files into your db container, just copy and paste them
 #### 6. Links to exercises:
 
 1. https://sqlpedia.pl/having-filtrowanie-grup/
+2. https://www.coddykit.com/pl/courses/postgresql_performance/interpreting-plan-nodes-1288207
