@@ -105,3 +105,4 @@ If you need to upload any files into your db container, just copy and paste them
 
 1. https://sqlpedia.pl/having-filtrowanie-grup/
 2. https://www.coddykit.com/pl/courses/postgresql_performance/interpreting-plan-nodes-1288207
+3. https://github.com/eirkostop/SQL-Northwind-exercises/blob/master/Northwind-Exercises.pdf -->> zadania wraz z odpowiedziami
